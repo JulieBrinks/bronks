@@ -55,11 +55,10 @@ h2 {
 
 /* Movie info modal */
 .info > .content {
-    // TODO: go through this
     background-color: #fefefe;
     color: #2f2f2f;
     margin: 15% auto;
-    padding: 25px;
+    padding: 20px;
     border: 1px solid #888;
     width: 80%;
 }
