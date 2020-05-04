@@ -1,17 +1,20 @@
 .skeleton{
-    display: grid;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: safe center;
+    align-items: center;
+    flex-basis: auto;
 }
 
-.skeleton > *{
+.skeleton > * {
     font-size: 100%;
     font-family: acumin-pro, system-ui, sans-serif;
     background-color: #557A95;
     color: white;
     padding: 10px;
-}
+    flex-basis: auto;
+    overflow: hidden;
 
-.header {
-    text-align: center;
 }
 
 .wrapper {
@@ -22,126 +25,111 @@
     background-color: #ffffff;
 }
 
-/* Using flex to make thumbnails and titles auto scale easily */
-.thumbnails > div{
-    display: flex;
-    align-items: center;
-}
+@media (min-width: 1000px) {
+    .skeleton {
+        display: grid;
+    }
 
-img {
-    height: 35%;
-    width: 35%;
-    padding: 30px;
-    cursor: grab;
-}
+    .header {
+        text-align: center;
+    }
 
-h2 {
-    cursor: grab;
-    font-size: 200%;
-}
+    /* Using flex to make thumbnails and titles auto scale easily */
+    .thumbnails > div {
+        display: flex;
+        align-items: center;
+    }
 
-.info {
-    display: none;
-    position: fixed;
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.8);
-    flex-flow: column;
-    text-align: center;
-}
+    img {
+        height: 35%;
+        width: 35%;
+        padding: 30px;
+        cursor: grab;
+    }
 
-iframe{
-    width: 760px;
-    height: 515px;
-}
+    h2 {
+        cursor: grab;
+        font-size: 200%;
+    }
 
-#data > *{
-    font-size: larger;
-    list-style-type: none;
-    text-align: left;
-    padding: 10px;
-}
+    .info {
+        display: none;
+        position: fixed;
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* Scroll */
+        background-color: rgba(0, 0, 0, 0.8);
+        flex-flow: column;
+        text-align: center;
+        scroll-snap-align: center;
+        scroll-behavior: smooth;
+    }
 
-/* Movie info modal */
-.info > .content {
-    background-color: rgba(100%, 100%, 100%, 0.6);
-    color: #2f2f2f;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
+    iframe {
+        width: 760px;
+        height: 515px;
+    }
 
-.info > #data{
-    display: flex;
-    align-self: flex-end;
-    flex-flow: wrap;
-}
+    #data > * {
+        font-size: larger;
+        list-style-type: none;
+        text-align: left;
+        padding: 10px;
+    }
 
-#close {
-    color: black;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-#close:hover,
-#close:focus {
-    color: antiquewhite;    
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Using flex to easily place items with spacing */
-.footer {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
-    flex-wrap: wrap;
-    font-family: acumin-pro, system-ui, sans-serif;
-    color: #2f2f2f;
-    background-color: #fff;
-}
-
-#left {
-    order: 1;
-}
-
-#middle {
-    order: 2;
-}
-
-#right {
-    order: 3;
-}
-
-/* Making it mobile friendly */
-@media only screen and (max-width: 600px) {
-    .thumbnails > div > img{
-        height: 80%;
+    /* Movie info modal */
+    .info > .content {
+        background-color: rgba(100%, 100%, 100%, 0.6);
+        color: #2f2f2f;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
         width: 80%;
     }
 
-    .thumbnails > div > h2{
-        background-color: white;
-        opacity: 60%;
+    .info > #data {
+        display: flex;
+        align-self: flex-end;
+        flex-flow: wrap;
+    }
+
+    #close {
+        color: black;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    #close:hover,
+    #close:focus {
+        color: antiquewhite;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Using flex to easily place items with spacing */
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        flex-wrap: wrap;
+        font-family: acumin-pro, system-ui, sans-serif;
         color: #2f2f2f;
+        background-color: #fff;
     }
 
-    iframe{
-        width: -moz-available;
-        height: available;
+    #left {
+        order: 1;
     }
 
-    .thumbnails > :first-child{
-        padding-top: 50px;
+    #middle {
+        order: 2;
     }
 
-    .thumbnails > div{
-        flex-flow: column-reverse;
+    #right {
+        order: 3;
     }
 }
