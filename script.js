@@ -106,8 +106,10 @@ function showInfo(title) {
     const embedID = youtubeID(title);
     const source = "https://www.youtube.com/embed/" + embedID;
     const url = "http://www.omdbapi.com/?t=" + title + "&apikey=7b460699";
+
     let currentYear = new Date();
     currentYear = currentYear.getFullYear();
+    let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     // variables for setting data about the movie
     const year = document.getElementById('year');
@@ -128,7 +130,7 @@ function showInfo(title) {
     header.textContent = title;
 
     // fetch with API KEY = 7b460699
-    fetch(url)
+    fetch(proxyUrl + url)
         .then((response) => response.json())
         .then((responseJSON)=>{
             // set data in HTML element
