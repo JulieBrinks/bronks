@@ -23,7 +23,7 @@ var mjson = {
         "tn": "https://art-s.nflximg.net/66ad5/02a5e862fe23b114f6963cfb986b1d6378d66ad5.jpg"
     },
     {
-        "title": "It",
+        "title": "IT",
         "yt": "FnCdOQsX5kc",
         "tn": "https://www.wwnytv.com/resizer/xZuzmOkY74m2SWvoe_eEXp-J4cw=/1200x600/arc-anglerfish-arc2-prod-raycom.s3.amazonaws.com/public/WQCWCUYTCBEBNOVPMEYPRQJCSI.jpg"
     },
@@ -97,8 +97,7 @@ function setContent(){
 
 setContent()
 
-// Show Youtube trailer
-
+// Show Youtube trailer, title and info
 function showInfo(title) {
 
     const info = document.getElementById('movieinfo');
@@ -106,6 +105,18 @@ function showInfo(title) {
     const embed = document.getElementById('youtube');
     const embedID = youtubeID(title);
     const source = "https://www.youtube.com/embed/" + embedID;
+    const url = "http://www.omdbapi.com/?t=" + title + "&apikey=7b460699";
+    let currentYear = new Date();
+    currentYear = currentYear.getFullYear();
+
+    // variables for setting data about the movie
+    const year = document.getElementById('year');
+    const age = document.getElementById('age');
+    const plot = document.getElementById('plot');
+    const writer = document.getElementById('writer');
+    const actors = document.getElementById('actors');
+    const awards = document.getElementById('awards');
+    const imdb = document.getElementById('imdb');
 
     // set source to trailer for the movie the user has clicked on
     embed.setAttribute('src', source)
@@ -115,6 +126,21 @@ function showInfo(title) {
 
     // set title to title for the movie the user has clicked on
     header.textContent = title;
+
+    // fetch with API KEY = 7b460699
+    fetch(url)
+        .then((response) => response.json())
+        .then((responseJSON)=>{
+            // set data in HTML element
+            const temp = currentYear - responseJSON.Year;
+            year.textContent = 'Year: ' + responseJSON.Year;
+            age.textContent = 'The movie is ' + temp + ' years old';
+            plot.textContent = 'Description: ' + responseJSON.Plot;
+            writer.textContent = 'Writer: ' + responseJSON.Writer;
+            actors.textContent = 'Actors: ' + responseJSON.Actors;
+            awards.textContent = 'Awards: ' + responseJSON.Awards;
+            imdb.textContent = 'IMDB rating: ' + responseJSON.imdbRating;
+        });
 }
 
 // Get YouTube id from array through title
@@ -131,9 +157,9 @@ function youtubeID(title) {
 }
 
 // modal close button
-    const modal = document.getElementById('movieinfo');
-    const span = document.getElementById('close');
-    const embed = document.getElementById('youtube');
+const modal = document.getElementById('movieinfo');
+const span = document.getElementById('close');
+const embed = document.getElementById('youtube');
 
 // when the user clicks on X, close the modal
     span.onclick = function() {

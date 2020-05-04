@@ -37,7 +37,7 @@ img {
 
 h2 {
     cursor: grab;
-    font-size: 150%;
+    font-size: 200%;
 }
 
 .info {
@@ -49,13 +49,26 @@ h2 {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.8);
     flex-flow: column;
+    text-align: center;
+}
+
+iframe{
+    width: 760px;
+    height: 515px;
+}
+
+#data > *{
+    font-size: larger;
+    list-style-type: none;
+    text-align: left;
+    padding: 10px;
 }
 
 /* Movie info modal */
 .info > .content {
-    background-color: #fefefe;
+    background-color: rgba(100%, 100%, 100%, 0.6);
     color: #2f2f2f;
     margin: 15% auto;
     padding: 20px;
@@ -70,7 +83,7 @@ h2 {
 }
 
 #close {
-    color: #aaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -78,7 +91,7 @@ h2 {
 
 #close:hover,
 #close:focus {
-    color: black;
+    color: antiquewhite;    
     text-decoration: none;
     cursor: pointer;
 }
@@ -114,8 +127,14 @@ h2 {
     }
 
     .thumbnails > div > h2{
-        -webkit-text-stroke-width: medium;
-        -webkit-text-stroke-color: #2f2f2f;
+        background-color: white;
+        opacity: 60%;
+        color: #2f2f2f;
+    }
+
+    iframe{
+        width: -moz-available;
+        height: available;
     }
 
     .thumbnails > :first-child{
