@@ -130,7 +130,7 @@ function showInfo(title) {
     header.textContent = title;
 
     // fetch with API KEY = 7b460699
-    fetch(proxyUrl + url)
+    fetch(url)
         .then((response) => response.json())
         .then((responseJSON)=>{
             // set data in HTML element
