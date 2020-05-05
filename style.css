@@ -41,6 +41,7 @@
 h2 {
     cursor: grab;
     font-size: 200%;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 img {
@@ -138,6 +139,10 @@ iframe {
         height: 35%;
         width: 35%;
         padding: 30px;
+    }
+
+    h2 {
+        background-color: unset;
     }
 
     .content-things {
