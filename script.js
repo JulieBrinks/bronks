@@ -182,9 +182,11 @@ const embed = document.getElementById('youtube');
     }
 
 
+
 // last updated date (Footer)
 var currentDate = new Date()
 currentDate = currentDate.toLocaleDateString()
 document.getElementById('date').innerHTML =  currentDate.toString()
+
 
 

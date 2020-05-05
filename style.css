@@ -9,7 +9,6 @@
 .skeleton > * {
     font-size: 100%;
     font-family: acumin-pro, system-ui, sans-serif;
-    background-color: #557A95;
     color: white;
     padding: 10px;
     flex-basis: auto;
@@ -25,100 +24,136 @@
     background-color: #ffffff;
 }
 
-@media (min-width: 1000px) {
+.header {
+    text-align: center;
+    background-color: rgba(85,122,149,0.4);
+    background-image: url("https://miro.medium.com/max/2880/1*0tYTCK1smzGUugzFZiPcPQ.jpeg");
+    background-blend-mode: color-burn;
+}
+
+/* Using flex to make thumbnails and titles auto scale easily */
+.thumbnails > div {
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+h2 {
+    cursor: grab;
+    font-size: 200%;
+}
+
+img {
+    height: 80%;
+    width: 80%;
+    padding: 30px;
+    cursor: grab;
+}
+
+.info {
+    display: none;
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Scroll */
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-flow: column;
+    text-align: center;
+    scroll-snap-align: center;
+    scroll-behavior: smooth;
+}
+
+/* Movie info modal */
+.info > .content {
+    display: flex;
+    flex-flow: column wrap;
+    background-color: rgba(100%, 100%, 100%, 0.6);
+    color: #2f2f2f;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+#close {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+#close:hover,
+#close:focus {
+    color: antiquewhite;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#data > * {
+    font-size: larger;
+    list-style-type: none;
+    text-align: left;
+    padding: 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 50vh;
+}
+
+.footer {
+    display: flex;
+    flex-flow: column wrap;
+    font-family: acumin-pro, system-ui, sans-serif;
+    color: #2f2f2f;
+    background-color: #fff;
+}
+
+.footer > * {
+    text-align: center;
+}
+
+@media (min-width: 1200px) {
     .skeleton {
         display: grid;
     }
 
     .header {
         text-align: center;
+        background-color: rgba(85,122,149,0.4);
+        background-image: none;
     }
 
-    /* Using flex to make thumbnails and titles auto scale easily */
-    .thumbnails > div {
+
+    /* select thumbnails and title */
+    .wrapper > .thumbnails > *{
         display: flex;
-        align-items: center;
+        flex-flow: row;
     }
 
     img {
         height: 35%;
         width: 35%;
         padding: 30px;
-        cursor: grab;
+    }
+
+    .content-things {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-evenly;
     }
 
     h2 {
-        cursor: grab;
         font-size: 200%;
-    }
-
-    .info {
-        display: none;
-        position: fixed;
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto; /* Scroll */
-        background-color: rgba(0, 0, 0, 0.8);
-        flex-flow: column;
-        text-align: center;
-        scroll-snap-align: center;
-        scroll-behavior: smooth;
-    }
-
-    iframe {
-        width: 760px;
-        height: 515px;
-    }
-
-    #data > * {
-        font-size: larger;
-        list-style-type: none;
-        text-align: left;
-        padding: 10px;
-    }
-
-    /* Movie info modal */
-    .info > .content {
-        background-color: rgba(100%, 100%, 100%, 0.6);
-        color: #2f2f2f;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-    }
-
-    .info > #data {
-        display: flex;
-        align-self: flex-end;
-        flex-flow: wrap;
-    }
-
-    #close {
-        color: black;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    #close:hover,
-    #close:focus {
-        color: antiquewhite;
-        text-decoration: none;
-        cursor: pointer;
     }
 
     /* Using flex to easily place items with spacing */
     .footer {
-        display: flex;
         justify-content: space-between;
         flex-flow: row wrap;
-        flex-wrap: wrap;
-        font-family: acumin-pro, system-ui, sans-serif;
-        color: #2f2f2f;
-        background-color: #fff;
     }
 
     #left {
