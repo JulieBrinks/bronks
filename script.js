@@ -134,7 +134,7 @@ function showInfo(title) {
 
     // fetch with API KEY = 7b460699
     // works without proxy locally but not in github
-    fetch(url)
+    fetch(proxyUrl + url)
         .then((response) => response.json())
         .then((responseJSON)=>{
             // set data in HTML element
