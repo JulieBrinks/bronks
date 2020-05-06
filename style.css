@@ -97,7 +97,7 @@ img {
 /* making sure the close button is properly placed and reacts to hovering*/
 #close {
     color: black;
-    font-size: xx-large;
+    font-size: 5vh;
     font-weight: bold;
     align-self: flex-end;
 }

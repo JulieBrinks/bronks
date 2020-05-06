@@ -1,4 +1,4 @@
-/* import json */
+/* json varable with movie title, img link and yt id */
 
 var mjson = {
     "movies": [
@@ -71,7 +71,7 @@ function setContent(){
         const app = document.getElementById(search)
         const title = document.createElement('H2');
 
-        // set source and add img element to css
+        // set source and add img element to html
         img.src = mjson.movies[i].tn;
         app.appendChild(img);
 
