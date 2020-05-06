@@ -32,9 +32,11 @@
     background-color: rgba(85,122,149,0.4);
     background-image: url("https://miro.medium.com/max/2880/1*0tYTCK1smzGUugzFZiPcPQ.jpeg");
     background-blend-mode: color-burn;
+    background-size: cover;
     opacity: 0.8;
     cursor: default;
 }
+
 
 /* using flex to make thumbnails and titles auto scale easily */
 .thumbnails > div {
