@@ -79,6 +79,9 @@ function setContent(){
         var name = 'img' + i;
         img.setAttribute('id', name);
 
+        // create alt to pass google audit accesability test
+        img.setAttribute('alt', 'The movie image has trouble loading')
+
         // set source and add title element to css
         title.textContent = mjson.movies[i].title;
         app.appendChild(title);
@@ -130,7 +133,8 @@ function showInfo(title) {
     header.textContent = title;
 
     // fetch with API KEY = 7b460699
-    fetch(proxyUrl + url)
+    // works without proxy locally but not in github
+    fetch(url)
         .then((response) => response.json())
         .then((responseJSON)=>{
             // set data in HTML element

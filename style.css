@@ -1,3 +1,5 @@
+/* using flex to make the skeleton and its' items as responsive as possible */
+
 .skeleton{
     display: flex;
     flex-flow: column wrap;
@@ -7,7 +9,6 @@
 }
 
 .skeleton > * {
-    font-size: 100%;
     font-family: acumin-pro, system-ui, sans-serif;
     color: white;
     padding: 10px;
@@ -16,6 +17,7 @@
 
 }
 
+/* making a fixed background for the 2-dimensional feel */
 .wrapper {
     background-image: url("https://miro.medium.com/max/2880/1*0tYTCK1smzGUugzFZiPcPQ.jpeg");
     background-repeat: no-repeat;
@@ -24,33 +26,46 @@
     background-color: #ffffff;
 }
 
+/* setting header style up */
 .header {
     text-align: center;
     background-color: rgba(85,122,149,0.4);
     background-image: url("https://miro.medium.com/max/2880/1*0tYTCK1smzGUugzFZiPcPQ.jpeg");
     background-blend-mode: color-burn;
+    opacity: 0.8;
+    cursor: default;
 }
 
-/* Using flex to make thumbnails and titles auto scale easily */
+/* using flex to make thumbnails and titles auto scale easily */
 .thumbnails > div {
     display: flex;
     align-items: center;
     flex-flow: column wrap;
 }
 
-h2 {
-    cursor: grab;
+/* giving titles a background so they can be seen on white background */
+.thumbnails > div > h2 {
     font-size: 200%;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+/* making them do cool stuff on hover so the user knows they can click on it */
+.thumbnails > div > h2:hover,
+.thumbnails > div > h2:focus {
+    color: rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* scaling images */
 img {
     height: 80%;
     width: 80%;
     padding: 30px;
-    cursor: grab;
+    cursor: pointer;
 }
 
+/* setting modal background up */
 .info {
     display: none;
     position: fixed;
@@ -59,7 +74,7 @@ img {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Scroll */
+    overflow: auto; /* enable scroll */
     background-color: rgba(0, 0, 0, 0.8);
     flex-flow: column;
     text-align: center;
@@ -67,7 +82,7 @@ img {
     scroll-behavior: smooth;
 }
 
-/* Movie info modal */
+/* setting the actual modal up */
 .info > .content {
     display: flex;
     flex-flow: column wrap;
@@ -79,6 +94,7 @@ img {
     width: 80%;
 }
 
+/* making sure the close button is properly placed and reacts to hovering*/
 #close {
     color: black;
     font-size: xx-large;
@@ -93,6 +109,7 @@ img {
     cursor: pointer;
 }
 
+/* making sure the movie info is left aligned and properly set up */
 #data > * {
     font-size: larger;
     list-style-type: none;
@@ -100,11 +117,13 @@ img {
     padding: 10px;
 }
 
+/* making the youtube trailer have correct propertions */
 iframe {
     width: 100%;
     height: 25vh;
 }
 
+/* setting up the footer */
 .footer {
     display: flex;
     flex-flow: column wrap;
@@ -117,6 +136,7 @@ iframe {
     text-align: center;
 }
 
+/* desktop setup */
 @media (min-width: 1200px) {
     .skeleton {
         display: grid;
@@ -139,9 +159,19 @@ iframe {
         height: 35%;
         width: 35%;
         padding: 30px;
+        transition: .5s ease;
+        opacity: 0.8;
     }
 
-    h2 {
+    /* making them do cool stuff on hover so the user knows they can click on it */
+    img:hover,
+    img:focus {
+        opacity: 1;
+    }
+
+    .thumbnails > div > h2 {
+        background-color: unset;
+        font-size: 200%;
         background-color: unset;
     }
 
@@ -154,10 +184,6 @@ iframe {
     iframe {
         width: 100%;
         height: 50vh;
-    }
-
-    h2 {
-        font-size: 200%;
     }
 
     /* Using flex to easily place items with spacing */
